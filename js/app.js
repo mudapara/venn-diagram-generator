@@ -5,7 +5,6 @@ const labelInputsContainer = document.getElementById("label-inputs");
 const resetLabelsBtn = document.getElementById("reset-labels");
 const sizeInput = document.getElementById("circle-size");
 const overlapInput = document.getElementById("overlap");
-const generateBtn = document.getElementById("generate-btn");
 const downloadSvgBtn = document.getElementById("download-svg");
 const downloadPngBtn = document.getElementById("download-png");
 const vennContainer = document.getElementById("venn-container");
@@ -133,7 +132,7 @@ increaseBtn.addEventListener("click", () => {
   generate();
 });
 
-countInput.addEventListener("change", () => {
+countInput.addEventListener("input", () => {
   setCount(getCount());
   generate();
 });
@@ -147,7 +146,6 @@ resetLabelsBtn.addEventListener("click", () => {
 
 sizeInput.addEventListener("input", generate);
 overlapInput.addEventListener("input", generate);
-generateBtn.addEventListener("click", generate);
 downloadSvgBtn.addEventListener("click", downloadSvg);
 downloadPngBtn.addEventListener("click", downloadPng);
 
