@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ベン図ジェネレーター</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header__brand">
+        <span class="header__icon" aria-hidden="true">◎</span>
+        <div>
+          <h1>ベン図ジェネレーター</h1>
+          <p class="header__subtitle">円の数を指定して、きれいなベン図を作成</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="panel">
+        <section class="control-group">
+          <label class="control-label" for="circle-count">円の数</label>
+          <div class="count-control">
+            <button type="button" class="btn btn--icon" id="count-decrease" aria-label="円を減らす">−</button>
+            <input
+              type="number"
+              id="circle-count"
+              class="count-input"
+              min="1"
+              max="30"
+              value="3"
+            >
+            <button type="button" class="btn btn--icon" id="count-increase" aria-label="円を増やす">+</button>
+          </div>
+          <p class="hint">1〜30個の円に対応しています</p>
+        </section>
+
+        <section class="control-group">
+          <div class="control-label-row">
+            <span class="control-label">集合のラベル</span>
+            <button type="button" class="btn btn--text" id="reset-labels">リセット</button>
+          </div>
+          <div id="label-inputs" class="label-inputs"></div>
+        </section>
+
+        <section class="control-group">
+          <label class="control-label" for="circle-size">円のサイズ</label>
+          <input type="range" id="circle-size" class="range" min="60" max="160" value="110">
+        </section>
+
+        <section class="control-group">
+          <label class="control-label" for="overlap">重なり具合</label>
+          <input type="range" id="overlap" class="range" min="20" max="80" value="45">
+        </section>
+
+        <div class="actions">
+          <button type="button" class="btn btn--primary" id="generate-btn">生成</button>
+          <button type="button" class="btn btn--secondary" id="download-svg">SVGを保存</button>
+          <button type="button" class="btn btn--secondary" id="download-png">PNGを保存</button>
+        </div>
+      </aside>
+
+      <section class="canvas-area">
+        <div class="canvas-card">
+          <div id="venn-container" class="venn-container" role="img" aria-label="ベン図のプレビュー"></div>
+        </div>
+        <p class="region-info" id="region-info"></p>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/venn.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
